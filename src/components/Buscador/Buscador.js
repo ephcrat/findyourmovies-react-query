@@ -21,9 +21,8 @@ export function Buscador({ addMovieFavorite, RemoveMovieFavorite }) {
   const API_KEY = process.env.REACT_APP_API_KEY;
 
   async function getMovies(titulo, page = 1) {
-    // if (titulo.length >= 3)
     return fetch(
-      `http://www.omdbapi.com/?apikey=${API_KEY}&s=${titulo}&type=movie&page=${page}`
+      `https://www.omdbapi.com/?apikey=${API_KEY}&s=${titulo}&type=movie&page=${page}`
     ).then((response) =>
       response.json().then((json) => {
         if (json.Response === "False") return;
