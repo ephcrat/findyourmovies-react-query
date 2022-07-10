@@ -1,5 +1,3 @@
-import axios from "axios";
-
 export const ADD_MOVIE_FAVORITE = "add movie favorite";
 export const REMOVE_MOVIE_FAVORITE = "remove movie favorite";
 

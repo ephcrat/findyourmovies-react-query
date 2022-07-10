@@ -12,13 +12,12 @@ export default function NavBar({ toggleTheme, isDarkTheme }) {
       <div>
         <h3 className="d-inline-block align-top" style={{ color: "white" }}>
           <NavLink
+            to="/"
             style={{
               textDecoration: "none",
               color: "var(--accent)",
               fontSize: "1.8rem",
             }}
-            exact
-            to="/"
           >
             FindYourMovie
           </NavLink>
@@ -31,7 +30,6 @@ export default function NavBar({ toggleTheme, isDarkTheme }) {
             <NavLink
               style={{ fontSize: "1.5rem" }}
               className="d-inline-block align-top"
-              exact
               to="/"
             >
               <FcHome />

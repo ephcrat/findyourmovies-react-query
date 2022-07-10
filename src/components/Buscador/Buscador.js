@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { connect, useSelector } from "react-redux";
 import { Link, useSearchParams, createSearchParams } from "react-router-dom";
 import styles from "./Buscador.module.css";
+
 import {
   FcSearch,
   FcLikePlaceholder,
@@ -17,7 +18,7 @@ export function Buscador({ addMovieFavorite, RemoveMovieFavorite }) {
   const [page, setPage] = useState(1);
   const search = searchParams.get("search");
   const pageParams = searchParams.get("page");
-  const API_KEY = "cc86a7d2";
+  const API_KEY = process.env.REACT_APP_API_KEY;
 
   async function getMovies(titulo, page = 1) {
     // if (titulo.length >= 3)
@@ -26,13 +27,12 @@ export function Buscador({ addMovieFavorite, RemoveMovieFavorite }) {
     ).then((response) =>
       response.json().then((json) => {
         if (json.Response === "False") return;
-        console.log(json.Search);
         return json.Search;
       })
     );
   }
 
-  const { data: movies, isLoading } = useQuery(
+  const { data: movies } = useQuery(
     ["movies", search, pageParams],
     () => {
       return search && getMovies(search, pageParams);

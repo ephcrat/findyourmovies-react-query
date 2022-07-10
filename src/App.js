@@ -5,7 +5,6 @@ import Buscador from "./components/Buscador/Buscador";
 import NavBar from "./components/NavBar/NavBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Movie from "./components/Movie/Movie";
-import { useState } from "react";
 import useLocalStorage from "use-local-storage";
 
 function App() {
