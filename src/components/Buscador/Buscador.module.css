@@ -100,3 +100,18 @@ a:visited {
   cursor: pointer;
   background-color: var(--accent);
 }
+
+@media only screen and (min-width: 350px) and (max-width: 500px) {
+  .input {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+  }
+  .icon {
+    margin-right: 1rem;
+  }
+
+  h1 {
+    padding-top: 1.5rem;
+  }
+}

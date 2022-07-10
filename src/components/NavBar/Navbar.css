@@ -9,6 +9,7 @@
   align-items: center;
   padding: 0 20px;
   box-sizing: border-box;
+  font-size: 1.8rem;
 }
 
 .navbar nav {
@@ -30,6 +31,7 @@
   display: flex;
   width: auto;
   align-items: center;
+  padding-left: 1.5rem;
 }
 
 .list-item a {
@@ -44,4 +46,36 @@
   height: 1.3rem;
   color: black;
   font-weight: 600;
+}
+
+.switch {
+  display: flex;
+}
+
+@media only screen and (min-width: 360px) and (max-width: 500px) {
+  .sun {
+    margin-left: 0.8rem;
+  }
+
+  .moon {
+    left: 0.5rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 359px) {
+  .sun {
+    margin: 0;
+  }
+
+  .moon {
+    left: 0.5rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
 }

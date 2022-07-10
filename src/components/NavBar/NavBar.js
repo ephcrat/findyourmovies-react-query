@@ -10,13 +10,12 @@ export default function NavBar({ toggleTheme, isDarkTheme }) {
   return (
     <header className="navbar">
       <div>
-        <h3 className="d-inline-block align-top" style={{ color: "white" }}>
+        <h3 className="d-inline-block align-top">
           <NavLink
             to="/"
             style={{
               textDecoration: "none",
               color: "var(--accent)",
-              fontSize: "1.8rem",
             }}
           >
             FindYourMovie
@@ -38,9 +37,13 @@ export default function NavBar({ toggleTheme, isDarkTheme }) {
               <FcLike />
             </NavLink>
           </li>
-          <li style={{ paddingLeft: "1rem" }}>
+          <li className="sun">
             <SunIcon />
+          </li>
+          <li className="switch">
             <Switch toggleTheme={toggleTheme} isDarkTheme={isDarkTheme} />
+          </li>
+          <li className="moon">
             <MoonIcon />
           </li>
         </ul>

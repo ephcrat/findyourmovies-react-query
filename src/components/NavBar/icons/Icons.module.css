@@ -1,3 +1,8 @@
-.icons {
+.moonIcon {
+  fill: var(--accent);
+  margin-right: 0;
+}
+
+.sunIcon {
   fill: var(--accent);
 }
