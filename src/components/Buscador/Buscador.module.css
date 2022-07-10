@@ -2,7 +2,11 @@
   background-color: var(--background);
   color: var(--text-primary);
   padding-top: 1rem;
+  margin: 0;
+  overflow: auto;
+  background-repeat: no-repeat;
 }
+
 .movieCard {
   list-style: none;
   font-size: 0.73rem;

@@ -1,18 +1,17 @@
-import React from "react";
-import { connect, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { FcLike } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { RemoveMovieFavorite } from "../../actions";
-import "./Favorites.css";
 import styles from "./Favorites.module.css";
 
-export function ConnectedList({ RemoveMovieFavorite }) {
+export default function ConnectedList() {
   const moviesFavourites = useSelector((state) => state.moviesFavourites);
-
+  const dispatch = useDispatch();
+ 
   return (
     <div className="wrapper">
       <h1>Favorite Movies</h1>
-
       <ul className={styles.moviesGrid}>
         {moviesFavourites.map((movie) => (
           <li key={movie.imdbID} className={styles.movieCard}>
@@ -29,7 +28,7 @@ export function ConnectedList({ RemoveMovieFavorite }) {
               <button
                 className={styles.button}
                 style={{ margin: "0.5rem" }}
-                onClick={() => RemoveMovieFavorite(movie)}
+                onClick={() => dispatch(RemoveMovieFavorite(movie))}
               >
                 <FcLike />
               </button>
@@ -41,10 +40,3 @@ export function ConnectedList({ RemoveMovieFavorite }) {
     </div>
   );
 }
-
-export default connect(
-  (state) => ({
-    moviesFavourites: state.moviesFavourites,
-  }),
-  { RemoveMovieFavorite }
-)(ConnectedList);

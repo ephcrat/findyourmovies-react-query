@@ -4,6 +4,7 @@ body {
   font-family: "Dosis", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--background);
 }
 
 code {
@@ -15,6 +16,7 @@ code {
 }
 
 :root {
+  --background-dark: #1c1c1c;
   --background: #e9ecef;
   --text-primary: #1c1c1c;
   --text-secondary: #333;

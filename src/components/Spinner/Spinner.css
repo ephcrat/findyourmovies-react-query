@@ -1,15 +1,17 @@
 .spinner {
-    display: flex;
-    justify-content: center;
-    margin: 30px;
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+  background-color: var(--background);
+  color: var(--text-primary);
+}
+
+.spinning {
+  animation: spinner 1s linear infinite;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
   }
-  
-  .spinning {
-    animation: spinner 1s linear infinite;
-  }
-  
-  @keyframes spinner {
-    to {
-      transform: rotate(360deg);
-    }
-  }
+}
