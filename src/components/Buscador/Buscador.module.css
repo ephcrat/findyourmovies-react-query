@@ -92,5 +92,5 @@ a:visited {
   border-color: transparent;
   gap: 5rem;
   cursor: pointer;
-  background-color: var(--input-bg);
+  background-color: var(--accent);
 }

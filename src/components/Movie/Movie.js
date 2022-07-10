@@ -14,7 +14,7 @@ export default function Movie() {
   async function getMovieDetail(payload) {
     try {
       const response = await axios.get(
-        `http://www.omdbapi.com/?apikey=cc86a7d2&i=${payload}&plot=full`
+        `https://www.omdbapi.com/?apikey=cc86a7d2&i=${payload}&plot=full`
       );
       return (payload = response.data);
     } catch (err) {
