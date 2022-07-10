@@ -95,6 +95,7 @@ export function Buscador({ addMovieFavorite, RemoveMovieFavorite }) {
             id="title"
             autoComplete="off"
             value={search ?? ""}
+            placeholder="Search for a movie..."
             onChange={(e) => handleChange(e)}
           />
           <FcSearch className={styles.icon} style={{ fontSize: "1.5rem" }} />

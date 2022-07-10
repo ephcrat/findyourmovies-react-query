@@ -78,7 +78,9 @@ a:visited {
   color: var(--text-primary);
   font-weight: 200;
   font-size: 1.2rem;
+  padding-left: 1rem;
 }
+
 .input:active {
   outline-color: var(--accent);
 }
