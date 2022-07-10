@@ -6,6 +6,7 @@ import { useQuery } from "react-query";
 import "./Movie.css";
 import { Spinner } from "../Spinner/Spinner";
 import axios from "axios";
+import { FcLike, FcLikePlaceholder } from "react-icons/fc";
 
 export default function Movie() {
   const { id } = useParams();
@@ -41,51 +42,63 @@ export default function Movie() {
     return <Spinner />;
   }
   return (
-    <div className="movie-detail">
-      <div style={{ textAlign: "center" }}>
-        <h1> Movie Details </h1>
-      </div>
-      <button
-        className="button"
-        style={{ margin: "0.5rem" }}
-        onClick={() => {
-          moviesFavourites?.find((m) => m.imdbID === id)
-            ? dispatch(RemoveMovieFavorite(movieDetail))
-            : dispatch(
-                addMovieFavorite({
-                  Title: movieDetail.Title,
-                  Year: movieDetail.Year,
-                  imdbID: id,
-                  Type: movieDetail.Type,
-                  Poster: movieDetail.Poster,
-                })
-              );
-        }}
-      >
-        {moviesFavourites?.find((m) => m.imdbID === id) ? "Faved" : "Fav"}
-      </button>
-      <div
-        className="details"
-        style={{ display: "flex", alignContent: "center" }}
-      >
-        <div style={{ display: "inline-flex", padding: "1rem" }}>
-          <img src={movieDetail.Poster} alt={movieDetail.Title} />
+    <div className="wrapper">
+      <div className="movie-detail">
+        <div
+          className="movie-card"
+          style={{ display: "flex", alignContent: "center" }}
+        >
+          <div className="img">
+            <img src={movieDetail.Poster} alt={movieDetail.Title} />
+          </div>
+          <ul>
+            <li className="title">
+              {movieDetail.Title} <span>({movieDetail.Year})</span>
+            </li>
+
+            <li className="imdb">
+              IMDb Rating <br /> <span>{movieDetail.imdbRating}/10</span>
+            </li>
+            <div className="asd">
+              <li>
+                <span>Like</span> <br />{" "}
+                <button
+                  style={{ width: "2rem" }}
+                  onClick={() => {
+                    moviesFavourites?.find((m) => m.imdbID === id)
+                      ? dispatch(RemoveMovieFavorite(movieDetail))
+                      : dispatch(
+                          addMovieFavorite({
+                            Title: movieDetail.Title,
+                            Year: movieDetail.Year,
+                            imdbID: id,
+                            Type: movieDetail.Type,
+                            Poster: movieDetail.Poster,
+                          })
+                        );
+                  }}
+                >
+                  {moviesFavourites?.find((m) => m.imdbID === id) ? (
+                    <FcLike />
+                  ) : (
+                    <FcLikePlaceholder />
+                  )}
+                </button>
+              </li>
+              <li>
+                <span>Runtime</span> <br /> {movieDetail.Runtime}
+              </li>
+              <li>
+                <span> Genre</span> <br /> {movieDetail.Genre}
+              </li>
+              <li>
+                <span>Actors</span> <br /> {movieDetail.Actors}
+              </li>
+            </div>
+
+            <li className="description">{movieDetail.Plot}</li>
+          </ul>
         </div>
-        <ul>
-          <li>
-            {movieDetail.Title} <span>({movieDetail.Year})</span>
-          </li>
-          <li>Runtime: {movieDetail.Runtime}</li>
-          <li>Genre: {movieDetail.Genre}</li>
-          <li>Actors: {movieDetail.Actors}</li>
-          <li>Metascore: {movieDetail.Metascore}</li>
-          <li> IMDB rating: {movieDetail.imdbRating}</li>
-          <li>
-            {" "}
-            <p>Plot:</p>
-            {movieDetail.Plot}
-          </li>
-        </ul>
       </div>
     </div>
   );

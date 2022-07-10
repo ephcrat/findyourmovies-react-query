@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import { connect, useSelector } from "react-redux";
 import { Link, useSearchParams, createSearchParams } from "react-router-dom";
-import "./Buscador.css";
+import styles from "./Buscador.module.css";
+import {
+  FcSearch,
+  FcLikePlaceholder,
+  FcLike,
+  FcRight,
+  FcLeft,
+} from "react-icons/fc";
 import { addMovieFavorite, RemoveMovieFavorite } from "../../actions";
 import { useQuery } from "react-query";
 
@@ -9,46 +16,53 @@ export function Buscador({ addMovieFavorite, RemoveMovieFavorite }) {
   const [searchParams, setSearchParams] = useSearchParams("");
   const [page, setPage] = useState(1);
   const search = searchParams.get("search");
+  const pageParams = searchParams.get("page");
   const API_KEY = "cc86a7d2";
 
   async function getMovies(titulo, page = 1) {
-    if (titulo.length >= 3)
-      return fetch(
-        `http://www.omdbapi.com/?apikey=${API_KEY}&s=${titulo}&type=movie&page=${page}`
-      ).then((response) =>
-        response.json().then((json) => {
-          return json.Search;
-        })
-      );
+    // if (titulo.length >= 3)
+    return fetch(
+      `http://www.omdbapi.com/?apikey=${API_KEY}&s=${titulo}&type=movie&page=${page}`
+    ).then((response) =>
+      response.json().then((json) => {
+        if (json.Response === "False") return;
+        console.log(json.Search);
+        return json.Search;
+      })
+    );
   }
 
   const { data: movies, isLoading } = useQuery(
-    ["movies", search, page],
-    () => search && getMovies(search, page)
+    ["movies", search, pageParams],
+    () => {
+      return search && getMovies(search, pageParams);
+    },
+    {
+      enabled: search?.length >= 3,
+    }
+  );
+
+  const { data: moviesNext } = useQuery(
+    ["moviesNext", search, page],
+    () => search && getMovies(search, page + 1)
   );
 
   const moviesFavourites = useSelector((state) => state.moviesFavourites);
 
   function handleChange(event) {
     event.preventDefault();
-    console.log(searchParams);
     event.target.value
       ? setSearchParams(
           createSearchParams({ search: event.target.value, page: page })
         )
       : removeQueryParams();
   }
-  function handleSubmit(event) {
-    event.preventDefault();
-  }
 
-  console.log(page);
   function handleNextPage() {
-    if (movies) {
+    if (moviesNext) {
       setPage(page + 1);
       setSearchParams(createSearchParams({ search: search, page: page + 1 }));
     }
-    return;
   }
 
   function handlePrevPage() {
@@ -73,13 +87,10 @@ export function Buscador({ addMovieFavorite, RemoveMovieFavorite }) {
   };
 
   return (
-    <div>
-      <h2>Find a Movie</h2>
-      <form className="form-container" onSubmit={(e) => handleSubmit(e)}>
-        <div>
-          <label className="label" htmlFor="title">
-            Movie Title:{" "}
-          </label>
+    <div className={styles.wrapper}>
+      <h1 style={{ textAlign: "center" }}>FindYourMovie</h1>
+      <form className="form-container">
+        <div className={styles.input}>
           <input
             type="text"
             id="title"
@@ -87,33 +98,55 @@ export function Buscador({ addMovieFavorite, RemoveMovieFavorite }) {
             value={search ?? ""}
             onChange={(e) => handleChange(e)}
           />
+          <FcSearch className={styles.icon} style={{ fontSize: "1.5rem" }} />
         </div>
-        <button onClick={removeQueryParams}>CLEAR</button>
       </form>
-      <button onClick={handlePrevPage}>Previous Page</button>
-      <button onClick={handleNextPage}>Next Page</button>
-      <ul>
+
+      <ul className={styles.moviesGrid}>
         {movies?.map((movie) => (
-          <li key={movie.imdbID}>
-            <Link className="link" to={`/movie/${movie.imdbID}`}>
-              {movie.Title}
+          <li key={movie.imdbID} className={styles.movieCard}>
+            <Link to={`/movie/${movie.imdbID}`}>
+              {" "}
+              <img
+                src={
+                  movie.Poster !== "N/A"
+                    ? movie.Poster
+                    : "https://i.vgy.me/UU2ijc.png"
+                }
+                alt={movie.Title}
+                className={styles.movieImage}
+              />
             </Link>
-            <button
-              className="button"
-              style={{ margin: "0.5rem" }}
-              onClick={() => {
-                moviesFavourites?.find((m) => m.imdbID === movie.imdbID)
-                  ? RemoveMovieFavorite(movie)
-                  : addMovieFavorite(movie);
-              }}
-            >
-              {moviesFavourites?.find((m) => m.imdbID === movie.imdbID)
-                ? "Faved"
-                : "Fav"}
-            </button>
+            <br />
+            <div className={styles.description}>
+              <button
+                className={styles.button}
+                style={{ margin: "0.5rem" }}
+                onClick={() => {
+                  moviesFavourites?.find((m) => m.imdbID === movie.imdbID)
+                    ? RemoveMovieFavorite(movie)
+                    : addMovieFavorite(movie);
+                }}
+              >
+                {moviesFavourites?.find((m) => m.imdbID === movie.imdbID) ? (
+                  <FcLike />
+                ) : (
+                  <FcLikePlaceholder />
+                )}
+              </button>
+              <h2 className={styles.title}>{movie.Title}</h2>
+            </div>
           </li>
         ))}
       </ul>
+      <div className={styles.btnDiv}>
+        <button className={styles.btnPages} onClick={handlePrevPage}>
+          <FcLeft />
+        </button>
+        <button className={styles.btnPages} onClick={handleNextPage}>
+          <FcRight />
+        </button>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,52 @@
+.wrapper {
+  background-color: var(--background);
+  color: var(--text-primary);
+  padding-top: 1rem;
+  transition: 0.5s;
+}
+.movieCard {
+  list-style: none;
+  font-size: 0.73rem;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 600;
+}
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+.movieImage {
+  height: 16.75rem;
+  width: 11rem;
+  border-radius: 10px;
+  background-color: azure;
+}
+
+.moviesGrid {
+  padding: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 9rem);
+  gap: 50px;
+  justify-content: center;
+}
+
+.title {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.button {
+  height: 1.2rem;
+}
+
+.description {
+  display: flex;
+  gap: 0.1rem;
+}

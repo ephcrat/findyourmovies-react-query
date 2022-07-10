@@ -1,0 +1,96 @@
+.wrapper {
+  background-color: var(--background);
+  color: var(--text-primary);
+  padding-top: 1rem;
+}
+.movieCard {
+  list-style: none;
+  font-size: 0.73rem;
+}
+h1 {
+  color: var(--text-header);
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+.movieImage {
+  height: 16.75rem;
+  width: 11rem;
+  border-radius: 10px;
+  background-color: azure;
+}
+
+.moviesGrid {
+  padding: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 11rem);
+  gap: 50px;
+  justify-content: center;
+  min-height: 51vh;
+}
+
+.title {
+  font-size: 0.7rem;
+}
+
+.button {
+  height: 1.2rem;
+}
+
+.description {
+  display: flex;
+  gap: 0.1rem;
+}
+
+.input {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  position: relative;
+  box-sizing: border-box;
+}
+.icon {
+  position: absolute;
+  box-sizing: border-box;
+  margin-left: 20rem;
+}
+
+.input input {
+  width: 25rem;
+  height: 2rem;
+  border-radius: 20px;
+  border: 1.5rem;
+  background-color: var(--input-bg);
+  border-color: transparent;
+  color: var(--text-primary);
+  font-weight: 200;
+  font-size: 1.2rem;
+}
+.input:active {
+  outline-color: var(--accent);
+}
+
+.btnDiv {
+  gap: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btnPages {
+  width: 10rem;
+  font-size: 1.5rem;
+  border-radius: 20px;
+  border-color: transparent;
+  gap: 5rem;
+  cursor: pointer;
+  background-color: var(--input-bg);
+}
