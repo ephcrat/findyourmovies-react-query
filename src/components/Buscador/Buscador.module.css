@@ -2,8 +2,7 @@
   background-color: var(--background);
   color: var(--text-primary);
   padding-top: 1rem;
-  margin: 0;
-  overflow: auto;
+
   background-repeat: no-repeat;
 }
 
@@ -34,23 +33,26 @@ a:visited {
 .moviesGrid {
   padding: 2.5rem;
   display: grid;
-  grid-template-columns: repeat(auto-fill, 11rem);
+  grid-template-columns: repeat(auto-fill, 13rem);
   gap: 50px;
   justify-content: center;
   min-height: 51vh;
 }
 
 .title {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  display: contents;
 }
 
 .button {
   height: 1.2rem;
+  margin-left: 0.1rem;
 }
 
 .description {
   display: flex;
-  gap: 0.1rem;
+  gap: 0.5rem;
+  width: 88%;
 }
 
 .input {

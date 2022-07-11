@@ -34,12 +34,11 @@ a:visited {
   display: grid;
   grid-template-columns: repeat(auto-fill, 9rem);
   gap: 8rem;
-  margin: 0;
 }
 
 .title {
   font-size: 0.9rem;
-  margin-top: 0.5rem;
+  display: contents;
 }
 
 .button {
@@ -48,10 +47,15 @@ a:visited {
 
 .description {
   display: flex;
-  gap: 0.1rem;
+  gap: 0.5rem;
 }
 @media only screen and (min-width: 350px) and (max-width: 500px) {
   .title {
+    display: inline-flex;
+  }
+
+  .button {
+    margin-top: 0.8rem;
   }
   .wrapper {
   }

@@ -121,7 +121,6 @@ export function Buscador({ addMovieFavorite, RemoveMovieFavorite }) {
             <div className={styles.description}>
               <button
                 className={styles.button}
-                style={{ margin: "0.5rem" }}
                 onClick={() => {
                   moviesFavourites?.find((m) => m.imdbID === movie.imdbID)
                     ? RemoveMovieFavorite(movie)

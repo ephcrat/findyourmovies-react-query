@@ -26,7 +26,7 @@ export default function ConnectedList() {
             <div className={styles.description}>
               <button
                 className={styles.button}
-                style={{ margin: "0.5rem" }}
+                // style={{ margin: "0.5rem" }}
                 onClick={() => dispatch(RemoveMovieFavorite(movie))}
               >
                 <FcLike />
