@@ -8,7 +8,7 @@ import styles from "./Favorites.module.css";
 export default function ConnectedList() {
   const moviesFavourites = useSelector((state) => state.moviesFavourites);
   const dispatch = useDispatch();
- 
+
   return (
     <div className="wrapper">
       <h1>Favorite Movies</h1>
@@ -16,7 +16,6 @@ export default function ConnectedList() {
         {moviesFavourites.map((movie) => (
           <li key={movie.imdbID} className={styles.movieCard}>
             <Link to={`/movie/${movie.imdbID}`}>
-              {" "}
               <img
                 src={movie.Poster}
                 alt={movie.Title}
@@ -32,7 +31,9 @@ export default function ConnectedList() {
               >
                 <FcLike />
               </button>
-              <h2 className={styles.title}>{movie.Title}</h2>
+              <h2 style={{ width: "50%" }} className={styles.title}>
+                {movie.Title}
+              </h2>
             </div>
           </li>
         ))}
