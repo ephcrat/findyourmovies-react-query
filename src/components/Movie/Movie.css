@@ -18,10 +18,7 @@
 .movie-card {
   font: 14px/22px;
   padding: 40px 0;
-}
-
-.details {
-  padding: 50px 0 0 50px;
+  display: inline-flex;
 }
 
 .title {
@@ -44,11 +41,12 @@
 .description {
   bottom: 0px;
   height: 11rem;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.5rem;
   list-style-type: none;
   width: 80%;
-  padding-top: 1rem;
+  padding-top: 2rem;
+  padding-left: 1rem;
 }
 .column {
   padding-left: 41px;
@@ -57,11 +55,17 @@
   width: 480px;
 }
 
-.img img {
-  width: 50vh;
-  height: 80vh;
+.img {
   padding-top: 4rem;
-  padding-left: 50px;
+  padding-left: 4rem;
+  padding-right: 1rem;
+}
+
+.img img {
+  height: 20rem;
+  width: 15rem;
+  border-radius: 10px;
+  background-color: azure;
   transition: 0.5s;
 }
 
@@ -78,8 +82,9 @@
   flex-direction: row;
 }
 
-.asd {
+.details {
   padding-top: 1rem;
+  padding-left: 1rem;
   bottom: 0px;
   height: 4rem;
   line-height: 1.5rem;
@@ -89,15 +94,66 @@
   row-gap: 1rem;
 }
 
-.asd span {
+.details span {
   font-weight: 600;
 }
 
 .imdb {
+  padding-left: 1rem;
   list-style-type: none;
   font-weight: 600;
 }
 .imdb span {
   font-weight: 500;
   padding-left: 1rem;
+}
+
+@media only screen and (min-width: 350px) and (max-width: 600px) {
+  .title {
+    width: 60%;
+    text-align: center;
+    padding-left: 1.5rem;
+  }
+  .details {
+    padding-right: 4rem;
+    margin-right: 8rem;
+    padding-bottom: 1rem;
+  }
+
+  .description {
+    text-align: left;
+    padding-top: 10rem;
+    width: 80vw;
+    height: 100%;
+  }
+  .movie-card {
+    padding-right: 20rem;
+    display: grid;
+  }
+  .wrapper {
+    margin: 0 auto;
+    width: 40rem;
+    height: 600px;
+    border-radius: 5px;
+    position: relative;
+    padding-bottom: 2rem;
+    font-size: clamp(1.1rem, 0.7153rem + 1.6368vw, 1.5rem);
+  }
+
+  .img {
+    padding-top: 0rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding-right: 12rem;
+    width: 40%;
+  }
+  .img img {
+    height: 14rem;
+    width: 11rem;
+  }
+  .imdb {
+    text-align: left;
+  }
 }

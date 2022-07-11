@@ -87,7 +87,7 @@ export function Buscador({ addMovieFavorite, RemoveMovieFavorite }) {
 
   return (
     <div className={styles.wrapper}>
-      <h1 style={{ textAlign: "center" }}>FindYourMovie</h1>
+      <h1 style={{ width: "100%" }}>FindYourMovie</h1>
       <form className="form-container">
         <div className={styles.input}>
           <input

@@ -26,14 +26,10 @@ export default function NavBar({ toggleTheme, isDarkTheme }) {
       <nav>
         <ul className="list">
           <li className="list-item">
-            <NavLink
-              style={{ fontSize: "1.5rem" }}
-              className="d-inline-block align-top"
-              to="/"
-            >
+            <NavLink className="d-inline-block align-top" to="/">
               <FcHome />
             </NavLink>
-            <NavLink style={{ fontSize: "1.5rem" }} to="/favs">
+            <NavLink to="/favs">
               <FcLike />
             </NavLink>
           </li>

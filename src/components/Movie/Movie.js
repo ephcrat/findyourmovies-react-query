@@ -43,62 +43,57 @@ export default function Movie() {
   }
   return (
     <div className="wrapper">
-      <div className="movie-detail">
-        <div
-          className="movie-card"
-          style={{ display: "flex", alignContent: "center" }}
-        >
-          <div className="img">
-            <img src={movieDetail.Poster} alt={movieDetail.Title} />
-          </div>
-          <ul>
-            <li className="title">
-              {movieDetail.Title} <span>({movieDetail.Year})</span>
-            </li>
-
-            <li className="imdb">
-              IMDb Rating <br /> <span>{movieDetail.imdbRating}/10</span>
-            </li>
-            <div className="asd">
-              <li>
-                <span>Like</span> <br />{" "}
-                <button
-                  style={{ width: "2rem" }}
-                  onClick={() => {
-                    moviesFavourites?.find((m) => m.imdbID === id)
-                      ? dispatch(RemoveMovieFavorite(movieDetail))
-                      : dispatch(
-                          addMovieFavorite({
-                            Title: movieDetail.Title,
-                            Year: movieDetail.Year,
-                            imdbID: id,
-                            Type: movieDetail.Type,
-                            Poster: movieDetail.Poster,
-                          })
-                        );
-                  }}
-                >
-                  {moviesFavourites?.find((m) => m.imdbID === id) ? (
-                    <FcLike />
-                  ) : (
-                    <FcLikePlaceholder />
-                  )}
-                </button>
-              </li>
-              <li>
-                <span>Runtime</span> <br /> {movieDetail.Runtime}
-              </li>
-              <li>
-                <span> Genre</span> <br /> {movieDetail.Genre}
-              </li>
-              <li>
-                <span>Actors</span> <br /> {movieDetail.Actors}
-              </li>
-            </div>
-
-            <li className="description">{movieDetail.Plot}</li>
-          </ul>
+      <div className="movie-card">
+        <div className="img">
+          <img src={movieDetail.Poster} alt={movieDetail.Title} />
         </div>
+        <ul>
+          <li className="title">
+            {movieDetail.Title} <span>({movieDetail.Year})</span>
+          </li>
+
+          <li className="imdb">
+            IMDb Rating <br /> <span>{movieDetail.imdbRating}/10</span>
+          </li>
+          <div className="details">
+            <li>
+              <span>Like</span> <br />{" "}
+              <button
+                style={{ width: "2rem" }}
+                onClick={() => {
+                  moviesFavourites?.find((m) => m.imdbID === id)
+                    ? dispatch(RemoveMovieFavorite(movieDetail))
+                    : dispatch(
+                        addMovieFavorite({
+                          Title: movieDetail.Title,
+                          Year: movieDetail.Year,
+                          imdbID: id,
+                          Type: movieDetail.Type,
+                          Poster: movieDetail.Poster,
+                        })
+                      );
+                }}
+              >
+                {moviesFavourites?.find((m) => m.imdbID === id) ? (
+                  <FcLike />
+                ) : (
+                  <FcLikePlaceholder />
+                )}
+              </button>
+            </li>
+            <li>
+              <span>Runtime</span> <br /> {movieDetail.Runtime}
+            </li>
+            <li>
+              <span> Genre</span> <br /> {movieDetail.Genre}
+            </li>
+            <li>
+              <span>Actors</span> <br /> {movieDetail.Actors}
+            </li>
+          </div>
+
+          <li className="description">{movieDetail.Plot}</li>
+        </ul>
       </div>
     </div>
   );

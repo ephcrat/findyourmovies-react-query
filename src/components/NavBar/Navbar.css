@@ -30,8 +30,11 @@
   margin: 0;
   display: flex;
   width: auto;
+  font-size: 2rem;
   align-items: center;
   padding-left: 1.5rem;
+  padding-right: 2rem;
+  gap: 1rem;
 }
 
 .list-item a {
@@ -53,6 +56,13 @@
 }
 
 @media only screen and (min-width: 360px) and (max-width: 500px) {
+  .list-item {
+    font-size: 1.5rem;
+    gap: 0rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.2rem;
+  }
   .sun {
     margin-left: 0.8rem;
   }
@@ -67,6 +77,13 @@
 }
 
 @media only screen and (max-width: 359px) {
+  .list-item {
+    font-size: 1.5rem;
+    gap: 0rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.2rem;
+  }
   .sun {
     margin: 0;
   }

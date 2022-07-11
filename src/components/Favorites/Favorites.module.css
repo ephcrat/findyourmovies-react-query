@@ -33,8 +33,7 @@ a:visited {
   padding: 2.5rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, 9rem);
-  gap: 50px;
-  justify-content: center;
+  gap: 8rem;
   margin: 0;
 }
 
@@ -50,4 +49,24 @@ a:visited {
 .description {
   display: flex;
   gap: 0.1rem;
+}
+@media only screen and (min-width: 350px) and (max-width: 500px) {
+  .wrapper {
+  }
+
+  .moviesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 25rem);
+    padding-bottom: 5rem;
+    justify-content: center;
+    padding-right: 5rem;
+  }
+
+  .movieImage {
+  }
+
+  h1 {
+    padding-right: 15rem;
+    text-align: center;
+  }
 }
