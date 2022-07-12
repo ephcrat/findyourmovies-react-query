@@ -32,8 +32,10 @@ a:visited {
 .moviesGrid {
   padding: 2.5rem;
   display: grid;
-  grid-template-columns: repeat(auto-fill, 9rem);
-  gap: 8rem;
+  grid-template-columns: repeat(auto-fill, 11rem);
+  column-gap: 5rem;
+  row-gap: 2rem;
+  justify-content: center;
 }
 
 .title {
