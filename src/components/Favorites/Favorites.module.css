@@ -1,8 +1,8 @@
 .wrapper {
   background-color: var(--background);
-
   color: var(--text-primary);
   padding-top: 1rem;
+  transition: 0.5s;
 }
 .movieCard {
   list-style: none;
