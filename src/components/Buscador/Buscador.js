@@ -91,6 +91,9 @@ export function Buscador({ addMovieFavorite, RemoveMovieFavorite }) {
       <form className="form-container">
         <div className={styles.input}>
           <input
+            onKeyPress={(e) => {
+              e.key === "Enter" && e.preventDefault();
+            }}
             type="text"
             id="title"
             autoComplete="off"
