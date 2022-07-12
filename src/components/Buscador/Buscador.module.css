@@ -33,7 +33,7 @@ a:visited {
 .moviesGrid {
   padding: 2.5rem;
   display: grid;
-  grid-template-columns: repeat(auto-fill, 13rem);
+  grid-template-columns: repeat(auto-fill, 12rem);
   gap: 50px;
   justify-content: center;
   min-height: 51vh;
@@ -116,5 +116,11 @@ a:visited {
 
   h1 {
     padding-top: 1.5rem;
+  }
+}
+
+@media only screen and (min-width: 1480px) {
+  .moviesGrid {
+    grid-template-columns: repeat(auto-fill, 17rem);
   }
 }

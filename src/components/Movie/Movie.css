@@ -102,10 +102,18 @@
   padding-left: 1rem;
   list-style-type: none;
   font-weight: 600;
+  height: 3.2rem;
+  width: 3rem;
+  padding-bottom: 3rem;
+}
+
+.imdb img {
+  width: 4rem;
+  height: 70%;
 }
 .imdb span {
-  font-weight: 500;
-  padding-left: 1rem;
+  margin-left: 0.5rem;
+  font-size: 2rem;
 }
 
 @media only screen and (min-width: 350px) and (max-width: 600px) {

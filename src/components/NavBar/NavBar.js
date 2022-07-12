@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 import { FcLike, FcHome } from "react-icons/fc";
 import "./Navbar.css";
 import Switch from "../Switch/Switch";
-import MoonIcon from "./icons/MoonIcon";
-import SunIcon from "./icons/SunIcon";
+import MoonIcon from "../Icons/MoonIcon";
+import SunIcon from "../Icons/SunIcon";
 
 export default function NavBar({ toggleTheme, isDarkTheme }) {
   return (

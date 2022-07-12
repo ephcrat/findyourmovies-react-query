@@ -7,6 +7,8 @@ import "./Movie.css";
 import { Spinner } from "../Spinner/Spinner";
 import axios from "axios";
 import { FcLike, FcLikePlaceholder } from "react-icons/fc";
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import imdb from "../Icons/imdb.png";
 
 export default function Movie() {
   const { id } = useParams();
@@ -53,7 +55,20 @@ export default function Movie() {
           </li>
 
           <li className="imdb">
-            IMDb Rating <br /> <span>{movieDetail.imdbRating}/10</span>
+            <img src={imdb} alt="IMDb" /> <br />{" "}
+            <span>
+              <CircularProgressbar
+                value={movieDetail.imdbRating}
+                maxValue={10}
+                text={`${movieDetail.imdbRating}/10`}
+                styles={buildStyles({
+                  textSize: "2rem",
+                  textColor: "var(--text-primary)",
+                  pathColor: "var(--path)",
+                  trailColor: "var(--trail)",
+                })}
+              />
+            </span>
           </li>
           <div className="details">
             <li>

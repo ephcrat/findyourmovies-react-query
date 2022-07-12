@@ -24,10 +24,14 @@ code {
   --navbar: #2f3e46;
   --accent: #cad2c5;
   --input-text: #220901;
+  --path: var(--navbar);
+  --trail: var(--accent);
 }
 [data-theme="dark"] {
   --background: #1c1c1c;
   --text-primary: #fff;
   --text-secondary: #b6b5b6;
   --text-header: var(--accent);
+  --path: var(--accent);
+  --trail: var(--navbar);
 }

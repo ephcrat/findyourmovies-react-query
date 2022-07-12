@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Movie from "./components/Movie/Movie";
 import useLocalStorage from "use-local-storage";
 import Empty from "./components/Empty/Empty";
+import 'react-circular-progressbar/dist/styles.css';
 
 function App() {
   const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
