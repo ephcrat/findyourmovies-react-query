@@ -142,8 +142,7 @@
   }
   .wrapper {
     margin: 0 auto;
-    width: 40rem;
-    height: 600px;
+    max-width: 100vh;
     border-radius: 5px;
     position: relative;
     font-size: clamp(1.1rem, 0.7153rem + 1.6368vw, 1.5rem);

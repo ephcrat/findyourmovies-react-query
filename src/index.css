@@ -35,3 +35,8 @@ code {
   --path: var(--accent);
   --trail: var(--navbar);
 }
+
+html,
+body {
+  overflow-x: hidden;
+}

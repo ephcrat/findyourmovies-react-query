@@ -59,15 +59,11 @@ a:visited {
   .button {
     margin-top: 0.8rem;
   }
-  .wrapper {
-  }
 
   .moviesGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 25rem);
-    padding-bottom: 5rem;
-    justify-content: center;
-    padding-right: 5rem;
+    grid-template-columns: repeat(auto-fill, 11rem);
+
     gap: 3rem;
   }
 
@@ -75,7 +71,6 @@ a:visited {
   }
 
   h1 {
-    padding-right: 15rem;
     text-align: center;
   }
 }

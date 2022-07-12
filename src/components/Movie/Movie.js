@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { addMovieFavorite, RemoveMovieFavorite } from "../../actions/index";
 import { useQuery } from "react-query";
 import "./Movie.css";
@@ -55,20 +55,28 @@ export default function Movie() {
           </li>
 
           <li className="imdb">
-            <img src={imdb} alt="IMDb" /> <br />{" "}
-            <span>
-              <CircularProgressbar
-                value={movieDetail.imdbRating}
-                maxValue={10}
-                text={`${movieDetail.imdbRating}/10`}
-                styles={buildStyles({
-                  textSize: "2rem",
-                  textColor: "var(--text-primary)",
-                  pathColor: "var(--path)",
-                  trailColor: "var(--trail)",
-                })}
-              />
-            </span>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href={`https://www.imdb.com/title/${id}`}
+            >
+              <img src={imdb} alt="IMDb" />
+
+              <br />
+              <span>
+                <CircularProgressbar
+                  value={movieDetail.imdbRating}
+                  maxValue={10}
+                  text={`${movieDetail.imdbRating}/10`}
+                  styles={buildStyles({
+                    textSize: "2rem",
+                    textColor: "var(--text-primary)",
+                    pathColor: "var(--path)",
+                    trailColor: "var(--trail)",
+                  })}
+                />
+              </span>
+            </a>
           </li>
           <div className="details">
             <li>
